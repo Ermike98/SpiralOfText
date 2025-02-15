@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiral Text Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="spiralContainer">
+        <svg id="spiralSVG" viewBox="0 0 500 700"></svg>
+    </div>
+
+    <div id="controlsContainer">
+        <h1>Spiral Text Generator</h1>
+        
+        <!-- Controls -->
+        <section>
+            <h4>Title:</h4>
+            <div class="control-label">
+                <label for="titleInput">Title:</label>
+                <input type="text" id="titleInput" value="Spiral Text Example">
+            </div>
+
+            <div class="control-label">
+                <label for="titleSizeInput">Title Size:</label>
+                <input type="number" id="titleSizeInput" value="70" step="1" min="1">
+            </div>
+        </section>
+
+        <section> 
+            <h4>Subtitle:</h4>
+            <div class="control-label">
+                <label for="subtitleInput">Subtitle:</label>
+                <input type="text" id="subtitleInput" value="A creative spiral graphic">
+            </div>
+
+            <div class="control-label">
+                <label for="subtitleSizeInput">Subtitle Size:</label>
+                <input type="number" id="subtitleSizeInput" value="55" step="1" min="1">
+            </div>
+        </section>
+        
+        <section> 
+            <h4>Text:</h4>
+            <div class="control-label">
+                <label for="textInput">Text:</label>
+                <!-- <textarea  value=""></textarea> -->
+                <textarea rows="4" class="auto_height" onInput="auto_height(this)" id="textInput">This is a spiral of text!</textarea>
+                <!-- <input id="textInput" value="This is a spiral of text!"> -->
+            </div>
+
+            <div class="control-label">
+                <label for="textSizeInput">Text Size:</label>
+                <input type="number" id="textSizeInput" value="30" step="1" min="1">
+            </div>
+            
+            <div class="control-label">
+                <label for="textScaleInput">Text Scale:</label>
+                <input type="number" id="textScaleInput" value="2" step="0.1" min="0">
+            </div>
+            
+            <div class="control-label">
+                <label for="textSpacingInput">Text Spacing:</label>
+                <input type="number" id="textSpacingInput" value="2" step="0.1" min="0">
+            </div>
+
+            
+            <div class="control-label">
+                <label for="idxStartInput">Loop Density:</label>
+                <input type="number" id="idxStartInput" value="6" step="1" min="0">
+            </div>
+
+            <div class="control-label">
+                <label for="theta0Input">Angle Offset:</label>
+                <input type="number" id="theta0Input" value="90" step="1" min="-179" max="180">
+            </div>
+        </section>
+        
+        <section> 
+            <h4>Shapes:</h4>
+            <div class="control-label">
+                <label for="ballSizeInput">Ball Size:</label>
+                <input type="number" id="ballSizeInput" value="0.8" step="0.1" min="0">
+            </div>
+
+            <div class="control-label">
+                <label for="lineHeightInput">Line Height:</label>
+                <input type="number" id="lineHeightInput" value="0.215" step="0.0025" min="0" max="1">
+            </div>
+
+            <div class="control-label">
+                <label for="lineWidthInput">Line Width:</label>
+                <input type="number" id="lineWidthInput" value="0.33" step="0.01" min="0" max="1">
+            </div>
+            
+            <div class="control-label">
+                <label for="lineThicknessInput">Line Thickness:</label>
+                <input type="number" id="lineThicknessInput" value="5" step="1" min="0">
+            </div>
+        </section>
+        
+        <section> 
+            <h4>Colors:</h4>
+
+            <div class="control-label">
+                <label for="fontColorInput">Text Color:</label>
+                <input type="color" id="fontColorInput" value="#23001E">
+            </div>
+            
+            <div class="control-label">
+                <label for="bgColorInput">Background Color:</label>
+                <input type="color" id="bgColorInput" value="#20A39E">
+            </div>
+            
+            <div class="control-label">
+                <label for="ballColorInput">Ball Color:</label>
+                <input type="color" id="ballColorInput" value="#FFBA49">
+            </div>
+            
+            <div class="control-label">
+                <label for="lineColorInput">Line Color:</label>
+                <input type="color" id="lineColorInput" value="#EF5B5B">
+            </div>
+        </section>
+
+        <section> 
+            <h4>Font:</h4>
+
+            <div class="control-panel">
+                <label for="fontUpload">Upload Your Font (TTF):</label>
+                <input type="file" id="fontUpload" accept=".ttf" />
+            </div>
+        </section>
+        
+        <button id="download">Download SVG</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
